@@ -9,7 +9,10 @@
     "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/main.js",
     "dev": "node dev.js",
     "lint:js": "eslint ./src",
-    "lint-staged": "echo \"Error: no test specified\" && lint-staged"
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": {
+    "run": "flint-staged"
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
@@ -33,7 +36,6 @@
       "node": true
     }
   },
-  "pre-commit": "lint-staged",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
