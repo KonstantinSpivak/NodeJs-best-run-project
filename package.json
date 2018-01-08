@@ -9,11 +9,13 @@
     "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/main.js",
     "dev": "node dev.js",
     "lint:js": "eslint ./src",
-    "lint-staged": "lint-staged"
+    "lint": "lint-staged",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
-  "pre-commit": {
-    "run": "flint-staged"
-  },
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
   "devDependencies": {
     "babel-register": "^6.26.0",
     "eslint": "^4.15.0",
@@ -40,8 +42,8 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
+    "koa": "^2.4.1",
     "lodash": "^4.17.4",
     "rimraf": "^2.6.2"
   }
